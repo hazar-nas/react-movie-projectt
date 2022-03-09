@@ -14,21 +14,21 @@ function Footer() {
 
                         <section className="">
                             <div className="row d-flex">
-                                <div className="col-lg col-md mb mb-md-0">
+                                <div className="col-lg col-md mb mb-md-0 p-3">
                                     <h5>Contributors</h5>
 
                                     <ul className="list-unstyled mb-0">
                                         <li>
-                                            <a href="#!" className="text-white">Hazar Nas</a>
+                                            <a href="#!" className="text-white text-decoration-none contact--hover">Hazar Nas</a>
                                         </li>
                                         <li>
-                                        <li>
-                                            <a href="#!" className="text-white">Oğuz Yılmaz</a>
-                                        </li>
-                                            <a href="#!" className="text-white">Mustafa Durmaz</a>
+                                            <a href="#!" className="text-white text-decoration-none contact--hover">Oğuz Yılmaz</a>
                                         </li>
                                         <li>
-                                            <a href="#!" className="text-white">Muhammed Yusuf Adıyaman</a>
+                                            <a href="#!" className="text-white text-decoration-none contact--hover">Mustafa Durmaz</a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" className="text-white text-decoration-none contact--hover">Muhammed Yusuf Adıyaman</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -36,9 +36,9 @@ function Footer() {
                         </section>
                     </div>
 
-                    <div className="text-center p-3 footerContact">
+                    <div className="text-center p-3">
                         © 2022 Copyright:
-                        <a className="text-white" href="https://github.com/MUHAMMED-YUSUF-ADIYAMAN/react-redux-moive-project"> Movie Project | Re:coded</a>
+                        <a className="text-white text-decoration-none" href="https://github.com/MUHAMMED-YUSUF-ADIYAMAN/react-redux-moive-project"> Movie Project | Re:coded</a>
                     </div>
                 </footer>
 

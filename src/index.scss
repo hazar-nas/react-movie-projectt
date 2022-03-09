@@ -25,8 +25,12 @@ code {
   width: 100%;
 }
 
-.footerContact {
-  a {
-    text-decoration: none;
+
+.contact--hover {
+  &:link, &:visited, &:active {
+    color: white
+  }
+  &:hover {
+    color: rgb(125, 126, 123);
   }
 }
