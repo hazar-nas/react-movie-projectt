@@ -13,8 +13,8 @@ function App() {
       <Router>
         <Switch>
           <Route path='/actors/:actorId' component={SingleActor} />
+          <Route path='/movies/movie/:movieId' component={Movie} />
           <Route path="/movies" component={Movies} />
-          <Route path='/movie/:movieId' component={Movie} />
           <Route path='/actors' component={Actor} />
           <Route exact path='/' component={Home} />
           <Route path="*" component={Error} />
