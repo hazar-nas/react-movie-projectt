@@ -4,35 +4,33 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import CardSlider from '../components/CardSlider'
-import { getMovieActors, getMovieDetails } from '../store/movieSlice'
 
-const Movie = () => {
-  const [currentActorNumber, setCurrentActorNumber] = useState({
+import { getActorDetails, getActorMovies } from '../store/actorsSlice'
+
+const SingleActor = () => {
+  const { actorId } = useParams()
+  const dispatch = useDispatch()
+  const actor = useSelector(
+    (state) => state.actors.actorsDetails.actorsDetailsList
+  )
+  const actorMovies = useSelector(
+    (state) => state.actors.actorMovies.actorMoviesList
+  )
+  const { status } = useSelector((state) => state.actors.actorsDetails)
+  const [currentMovieNumber, setCurrentMovieNumber] = useState({
     before: 0,
     after: 5,
   })
-  const { movieId } = useParams()
-  const dispatch = useDispatch()
-  const { movieActorsList } = useSelector((state) => state.movies.movieActors)
-  const movieActorsStatus = useSelector(
-    (state) => state.movies.movieActors.status
-  )
-  const { movieDetailsList } = useSelector((state) => state.movies.movieDetails)
-  const movieDetailsStatus = useSelector(
-    (state) => state.movies.movieDetails.status
-  )
-
-  const imageUrl = 'https://image.tmdb.org/t/p/w500/'
-  // console.log(movieDetailsList)
+  const imageUrl = 'https://image.tmdb.org/t/p/w500'
 
   useEffect(() => {
-    dispatch(getMovieActors(movieId))
-    dispatch(getMovieDetails(movieId))
-  }, [movieId, dispatch])
+    dispatch(getActorDetails(actorId))
+    dispatch(getActorMovies(actorId))
+  }, [actorId, dispatch])
 
   return (
     <div style={{ marginTop: '2rem' }}>
-      {movieActorsStatus === 'loading' || movieDetailsStatus === 'loading' ? (
+      {status === 'loading' ? (
         <p>Loading...</p>
       ) : (
         <>
@@ -40,8 +38,8 @@ const Movie = () => {
             <div>
               <img
                 style={{ width: '100%', height: '100%' }}
-                src={`${imageUrl}/${movieDetailsList.poster_path}`}
-                alt='movie.png'
+                src={`${imageUrl}/${actor.profile_path}`}
+                alt={actor.name}
               />
             </div>
             <div
@@ -58,28 +56,17 @@ const Movie = () => {
                   padding: '5px',
                 }}
               >
-                {movieDetailsList.original_title}
+                {actor.name}
               </h1>
               <div style={{ display: 'flex', padding: '5px' }}>
                 <p style={{ marginRight: 'auto' }}>
-                  {movieDetailsList.genres?.slice(0, 3).map((genre) => (
-                    <span key={genre.id}>
-                      {genre.name} {''}
-                    </span>
-                  ))}
+                  <span style={{ marginRight: '5px' }}>Birthday:</span>
+                  {actor.birthday}
+                  {actor.deathday && <span>Death:{actor.deathday}</span>}
                 </p>
                 <p>
-                  <span style={{ marginRight: '5px' }}>Directed By:</span>
-                  {movieActorsList?.crew?.slice(0, 1).map((crew) => (
-                    <span
-                      fontSize='lg'
-                      color='gray.200'
-                      fontWeight='bold'
-                      key={crew.id}
-                    >
-                      {crew.name}
-                    </span>
-                  ))}
+                  <span style={{ marginRight: '5px' }}>Popularity:</span>
+                  {actor.popularity}
                 </p>
               </div>
               <hr style={{ margin: '0 7px' }} />
@@ -91,45 +78,43 @@ const Movie = () => {
                   lineHeight: '1.5rem',
                 }}
               >
-                {movieDetailsList.overview?.slice(0, 1000) + '...'}
+                {actor.biography?.slice(0, 1000) + '...'}
               </p>
             </div>
             <div>
-              {movieActorsStatus === 'success' && (
+              {actorMovies.cast && (
                 <img
                   style={{ width: '100%', height: '100%' }}
                   alt='img.png'
-                  src={
-                    movieActorsList &&
-                    `${imageUrl}/${movieActorsList.cast[0]?.profile_path}`
-                  }
+                  src={`${imageUrl}/${actorMovies?.cast[0]?.poster_path}`}
                 />
               )}
             </div>
           </div>
-          <h1
+          <h3
             style={{
-              fontSize: '3rem',
               textAlign: 'center',
-              margin: '2rem 0 0 4rem',
+              paddingLeft: '1.5rem',
+              marginTop: '1.9rem',
+              fontSize: '2rem',
             }}
           >
-            Actors
-          </h1>
+            Movies
+          </h3>
           <div
             style={{
               display: 'flex',
               justifyContent: 'center',
             }}
           >
-            {movieActorsList.cast &&
-              movieActorsList.cast
-                .slice(currentActorNumber.before, currentActorNumber.after)
-                .map((actor) => (
+            {actorMovies.cast &&
+              actorMovies.cast
+                .slice(currentMovieNumber.before, currentMovieNumber.after)
+                .map((movie) => (
                   <Link
                     style={{ textDecoration: 'none' }}
-                    key={actor.id}
-                    to={`/actors/${actor.id}`}
+                    key={movie.id}
+                    to={`/movies/movie/${movie.id}`}
                   >
                     <Col
                       className='card_hover_effect'
@@ -141,19 +126,21 @@ const Movie = () => {
                       <img
                         alt='actor.png'
                         style={{ width: '15rem', height: '15rem' }}
-                        src={`${imageUrl}/${actor.profile_path}`}
+                        src={`${imageUrl}/${movie.poster_path}`}
                       />
                       <h4 style={{ color: 'black', width: '15rem' }}>
-                        {actor.name}
+                        {movie.title.length > 25
+                          ? movie.title.slice(0, 25) + '...'
+                          : movie.title}
                       </h4>
                     </Col>
                   </Link>
                 ))}
             <div style={{ alignSelf: 'center' }}>
               <CardSlider
-                Arrayy={movieActorsList.cast}
-                currentState={currentActorNumber}
-                setCurrentState={setCurrentActorNumber}
+                Arrayy={actorMovies.cast}
+                currentState={currentMovieNumber}
+                setCurrentState={setCurrentMovieNumber}
               />
             </div>
           </div>
@@ -163,4 +150,4 @@ const Movie = () => {
   )
 }
 
-export default Movie
+export default SingleActor
