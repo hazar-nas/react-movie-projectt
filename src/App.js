@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Actor from "./pages/Actor";
 import SingleActor from "./pages/SingleActor";
 import Movie from "./pages/Movie";
-import Movies from "./pages/Movies";
+
 import Error from "./pages/Error";
 import NavBar from "./components/NavBar";
 import MoviesGenre from "./pages/MoviesGenre";
