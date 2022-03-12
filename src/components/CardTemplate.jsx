@@ -13,7 +13,7 @@ function CardTemplate({ imageSrc, text, title }) {
       }}
     >
       <Card.Img
-        style={{ width: '8rem', height: '11rem' }}
+        style={{ width: '8rem', height: '11rem', alignSelf: 'center' }}
         variant='top'
         src={`${IMG_URL}/${imageSrc}`}
       />

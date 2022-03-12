@@ -15,7 +15,7 @@ code {
     monospace;
 }
 
-.footer{
+.footer {
   margin-top: 1rem;
   padding: 1rem;
   background-color: #666;
@@ -25,10 +25,11 @@ code {
   width: 100%;
 }
 
-
 .contact--hover {
-  &:link, &:visited, &:active {
-    color: white
+  &:link,
+  &:visited,
+  &:active {
+    color: white;
   }
   &:hover {
     color: rgb(125, 126, 123);

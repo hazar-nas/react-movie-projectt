@@ -58,6 +58,7 @@ const Actor = () => {
                     marginRight: '10px',
                     marginBottom: '1.25rem',
                     border: '1px solid #ccc',
+                    width: '100%',
                   }}
                   key={actor.id}
                   lg={3}
@@ -69,7 +70,9 @@ const Actor = () => {
                     src={`${imageUrl}/${actor.profile_path}`}
                     alt={actor.name}
                   />
-                  <h3 style={{ color: 'black' }}>{actor.name}</h3>
+                  <h3 style={{ color: 'black', fontSize: '1.3rem' }}>
+                    {actor.name}
+                  </h3>
                 </Col>
               </Link>
             ))}

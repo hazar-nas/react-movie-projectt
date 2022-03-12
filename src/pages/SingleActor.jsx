@@ -114,7 +114,7 @@ const SingleActor = () => {
                   <Link
                     style={{ textDecoration: 'none' }}
                     key={movie.id}
-                    to={`/movies/movie/${movie.id}`}
+                    to={`/movie/${movie.id}`}
                   >
                     <Col
                       className='card_hover_effect'
@@ -128,7 +128,13 @@ const SingleActor = () => {
                         style={{ width: '15rem', height: '15rem' }}
                         src={`${imageUrl}/${movie.poster_path}`}
                       />
-                      <h4 style={{ color: 'black', width: '15rem' }}>
+                      <h4
+                        style={{
+                          fontSize: '1.2rem',
+                          color: 'black',
+                          width: '15rem',
+                        }}
+                      >
                         {movie.title.length > 25
                           ? movie.title.slice(0, 25) + '...'
                           : movie.title}
