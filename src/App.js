@@ -16,7 +16,7 @@ function App() {
         <NavBar />
         <Switch>
           <Route path="/actors/:actorId" component={SingleActor} />
-          <Route path="/movies/movie/:movieId" component={Movie} />
+          <Route path="/movie/:movieId" component={Movie} />
           <Route path="/moviesgenre/:id" component={MoviesGenre} />
           <Route path="/actor" component={Actor} />
           <Route exact path="/" component={Home} />
