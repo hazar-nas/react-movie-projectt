@@ -1,9 +1,12 @@
-import myPhoto from './assets/asdasd.jpg'
+import MyPhoto from './assets/asdasd.jpg'
+import MyPhoto2 from './assets/IMG_3212.jpg'
+import MyPhoto3 from './assets/sanane.jpg'
+import MyPhoto4 from './assets/spaceEnter.png'
 
 export const infocard = [
   {
     id: 1,
-    photo: myPhoto,
+    photo: MyPhoto,
     jobTitle: 'Web Developer',
     fullName: 'Hazarcan Nas',
     linkedin: 'https://www.linkedin.com/in/hazarcan-nas/',
@@ -11,7 +14,7 @@ export const infocard = [
   },
   {
     id: 2,
-    photo: myPhoto,
+    photo: MyPhoto2,
     jobTitle: 'Web Developer',
     fullName: 'Hazarcan Nas',
     linkedin: 'https://www.linkedin.com/in/hazarcan-nas/',
@@ -19,7 +22,7 @@ export const infocard = [
   },
   {
     id: 3,
-    photo: myPhoto,
+    photo: MyPhoto3,
     jobTitle: 'Web Developer',
     fullName: 'Hazarcan Nas',
     linkedin: 'https://www.linkedin.com/in/hazarcan-nas/',
@@ -27,7 +30,7 @@ export const infocard = [
   },
   {
     id: 4,
-    photo: myPhoto,
+    photo: MyPhoto4,
     jobTitle: 'Web Developer',
     fullName: 'Hazarcan Nas',
     linkedin: 'https://www.linkedin.com/in/hazarcan-nas/',

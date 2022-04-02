@@ -18,14 +18,14 @@ code {
 .card-slider_component--left {
   cursor: pointer;
   position: absolute;
-  left: 8rem;
+  left: 6rem;
   font-size: 1.4rem;
 }
 
 .card-slider_component--right {
   cursor: pointer;
   position: absolute;
-  right: 8rem;
+  right: 6rem;
   font-size: 1.4rem;
 }
 
@@ -129,6 +129,14 @@ code {
   white-space: nowrap;
   text-align: left;
   padding: 5px;
+}
+
+.card-component_container--job {
+  width: 40%;
+  font-size: 0.7rem;
+  background-color: pink;
+  border-radius: 2px;
+  margin-bottom: 0.5rem;
 }
 
 @media only screen and (max-width: 37.5em) {
