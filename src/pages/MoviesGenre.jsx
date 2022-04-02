@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { CardGroup, Card, Figure, Container, Row } from 'react-bootstrap'
+import { Card, Row } from 'react-bootstrap'
 import { Link, useParams } from 'react-router-dom'
 
 const MoviesGenre = () => {

@@ -11,11 +11,11 @@ const Home = () => {
 
   const [currentPopularMovies, setCurrentPopularMovies] = useState({
     before: 0,
-    after: 5,
+    after: 4,
   })
   const [currentTrendMovies, setCurrentTrendMovies] = useState({
     before: 0,
-    after: 5,
+    after: 4,
   })
 
   // console.log(trendMovies)
@@ -35,6 +35,7 @@ const Home = () => {
           justifyContent: 'center',
           marginTop: '2rem',
           alignItems: 'center',
+          overflowX: 'hidden',
         }}
       >
         {popularMovieList
@@ -44,6 +45,7 @@ const Home = () => {
               imageSrc={movie.poster_path}
               title={movie.title}
               text={movie.vote_average}
+              id={movie.id}
               key={movie.id}
             />
           ))}
@@ -57,9 +59,9 @@ const Home = () => {
       <div
         style={{
           display: 'flex',
-          position: 'relative',
+
           justifyContent: 'center',
-          marginTop: '2rem',
+          margin: '2rem',
           alignItems: 'center',
         }}
       >

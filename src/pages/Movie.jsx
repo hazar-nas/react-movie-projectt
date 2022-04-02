@@ -39,7 +39,7 @@ const Movie = () => {
           <div className='grid_actor_container'>
             <div>
               <img
-                style={{ width: '100%', height: '100%' }}
+                className='grid_actor_container--img'
                 src={`${imageUrl}/${movieDetailsList.poster_path}`}
                 alt='movie.png'
               />
@@ -51,25 +51,21 @@ const Movie = () => {
                 padding: '12px',
               }}
             >
-              <h1
-                style={{
-                  fontSize: '1.5rem',
-                  textAlign: 'left',
-                  padding: '5px',
-                }}
-              >
+              <h1 className='grid_actor_container--h1'>
                 {movieDetailsList.original_title}
               </h1>
               <div style={{ display: 'flex', padding: '5px' }}>
                 <p style={{ marginRight: 'auto' }}>
                   {movieDetailsList.genres?.slice(0, 3).map((genre) => (
-                    <span key={genre.id}>
+                    <span style={{ fontSize: '0.8rem' }} key={genre.id}>
                       {genre.name} {''}
                     </span>
                   ))}
                 </p>
                 <p>
-                  <span style={{ marginRight: '5px' }}>Directed By:</span>
+                  <span style={{ fontSize: '0.9rem', marginRight: '5px' }}>
+                    Directed By:
+                  </span>
                   {movieActorsList?.crew?.slice(0, 1).map((crew) => (
                     <span
                       fontSize='lg'
@@ -83,21 +79,13 @@ const Movie = () => {
                 </p>
               </div>
               <hr style={{ margin: '0 7px' }} />
-              <p
-                style={{
-                  padding: '0 7px',
-                  marginTop: '0.5rem',
-                  textAlign: 'justify',
-                  lineHeight: '1.5rem',
-                }}
-              >
-                {movieDetailsList.overview?.slice(0, 1000) + '...'}
+              <p className='grid_actor_container--movie-details'>
+                {movieDetailsList?.overview}
               </p>
             </div>
-            <div>
+            <div className='grid_actor_container--right-img'>
               {movieActorsStatus === 'success' && (
                 <img
-                  style={{ width: '100%', height: '100%' }}
                   alt='img.png'
                   src={
                     movieActorsList &&

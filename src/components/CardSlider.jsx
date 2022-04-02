@@ -5,6 +5,7 @@ const CardSlider = ({ Arrayy, currentState, setCurrentState }) => {
   return (
     <>
       <FaAngleLeft
+        className='card-slider_component--left'
         onClick={() => {
           currentState.before !== 0 &&
             setCurrentState((preValue) => {
@@ -14,16 +15,16 @@ const CardSlider = ({ Arrayy, currentState, setCurrentState }) => {
               }
             })
         }}
-        style={{
-          cursor: 'pointer',
-          position: 'absolute',
-          left: '2rem',
-          fontSize: '29px',
-        }}
+        // style={{
+        //   cursor: 'pointer',
+        //   position: 'absolute',
+        //   left: '2rem',
+        //   fontSize: '1.2rem',
+        // }}
       />
       <FaAngleRight
         onClick={() => {
-          Arrayy.length > currentState.after &&
+          Arrayy.length - 1 > currentState.after &&
             setCurrentState((preValue) => {
               return {
                 before: preValue.before + 5,
@@ -31,12 +32,7 @@ const CardSlider = ({ Arrayy, currentState, setCurrentState }) => {
               }
             })
         }}
-        style={{
-          cursor: 'pointer',
-          position: 'absolute',
-          right: '2rem',
-          fontSize: '29px',
-        }}
+        className='card-slider_component--right'
       />
     </>
   )
