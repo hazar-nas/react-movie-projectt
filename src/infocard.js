@@ -1,4 +1,4 @@
-import MyPhoto from './assets/asdasd.jpg'
+import MyPhoto from './assets/IMG_0030.PNG'
 import MyPhoto2 from './assets/IMG_3212.jpg'
 import MyPhoto3 from './assets/sanane.jpg'
 import MyPhoto4 from './assets/spaceEnter.png'
