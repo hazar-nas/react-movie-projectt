@@ -19,7 +19,7 @@ const SingleActor = () => {
   const { status } = useSelector((state) => state.actors.actorsDetails)
   const [currentMovieNumber, setCurrentMovieNumber] = useState({
     before: 0,
-    after: 5,
+    after: 4,
   })
   const imageUrl = 'https://image.tmdb.org/t/p/w500'
 
@@ -37,12 +37,14 @@ const SingleActor = () => {
           <div className='grid_actor_container'>
             <div>
               <img
+                className=' grid_single-actor_container--img'
                 style={{ width: '100%', height: '100%' }}
                 src={`${imageUrl}/${actor.profile_path}`}
                 alt={actor.name}
               />
             </div>
             <div
+              className=' grid_single-actor_container--div'
               style={{
                 backgroundColor: '#FFFAFA',
                 color: 'black',
@@ -50,6 +52,7 @@ const SingleActor = () => {
               }}
             >
               <h1
+                className=' grid_single-actor_container--img'
                 style={{
                   fontSize: '1.5rem',
                   textAlign: 'left',
@@ -70,18 +73,11 @@ const SingleActor = () => {
                 </p>
               </div>
               <hr style={{ margin: '0 7px' }} />
-              <p
-                style={{
-                  padding: '0 7px',
-                  marginTop: '0.5rem',
-                  textAlign: 'justify',
-                  lineHeight: '1.5rem',
-                }}
-              >
-                {actor.biography?.slice(0, 1000) + '...'}
+              <p className='grid_actor_container--movie-details'>
+                {actor?.biography}
               </p>
             </div>
-            <div>
+            <div className='grid_actor_container--right-img'>
               {actorMovies.cast && (
                 <img
                   style={{ width: '100%', height: '100%' }}
@@ -95,18 +91,13 @@ const SingleActor = () => {
             style={{
               textAlign: 'center',
               paddingLeft: '1.5rem',
-              marginTop: '1.9rem',
+              marginTop: '4rem',
               fontSize: '2rem',
             }}
           >
             Movies
           </h3>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-            }}
-          >
+          <div className='actor_container'>
             {actorMovies.cast &&
               actorMovies.cast
                 .slice(currentMovieNumber.before, currentMovieNumber.after)
@@ -116,25 +107,13 @@ const SingleActor = () => {
                     key={movie.id}
                     to={`/movie/${movie.id}`}
                   >
-                    <Col
-                      className='card_hover_effect'
-                      style={{
-                        margin: '2rem  5px 1rem',
-                        border: '1px solid #ccc',
-                      }}
-                    >
+                    <Col className='card_hover_effect'>
                       <img
                         alt='actor.png'
-                        style={{ width: '15rem', height: '15rem' }}
+                        className='actor_container--img'
                         src={`${imageUrl}/${movie.poster_path}`}
                       />
-                      <h4
-                        style={{
-                          fontSize: '1.2rem',
-                          color: 'black',
-                          width: '15rem',
-                        }}
-                      >
+                      <h4 className='actor_container--h4'>
                         {movie.title.length > 25
                           ? movie.title.slice(0, 25) + '...'
                           : movie.title}

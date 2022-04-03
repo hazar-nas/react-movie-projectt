@@ -72,6 +72,7 @@ const Home = () => {
               imageSrc={movie.poster_path}
               title={movie.title}
               text={movie.vote_average}
+              id={movie.id}
               key={movie.id}
             />
           ))}

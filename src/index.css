@@ -16,6 +16,7 @@ code {
 }
 
 .card-slider_component--left {
+  color: rgb(213, 126, 141);
   cursor: pointer;
   position: absolute;
   left: 6rem;
@@ -23,18 +24,11 @@ code {
 }
 
 .card-slider_component--right {
+  color: rgb(213, 126, 141);
   cursor: pointer;
   position: absolute;
   right: 6rem;
   font-size: 1.4rem;
-}
-
-.card_hover_effect {
-  cursor: pointer;
-  transition: all 0.4s ease-in-out;
-}
-.card_hover_effect:hover {
-  transform: scale(1.05);
 }
 
 .infocard_container {
@@ -115,6 +109,10 @@ code {
   margin-top: 0.5rem;
   text-align: justify;
   line-height: 1.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 13;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .grid_actor_container--right-img img {
@@ -138,15 +136,55 @@ code {
   border-radius: 2px;
   margin-bottom: 0.5rem;
 }
+.actor_container {
+  display: flex;
+  justify-content: center;
+}
+.actor_container--img {
+  width: 15rem;
+  height: 15rem;
+}
+
+.actor_container--h4 {
+  font-size: 15px;
+  color: black;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.card_hover_effect {
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  margin: 2rem 5px 1rem;
+  border: 1px solid #ccc;
+}
+.card_hover_effect:hover {
+  transform: scale(1.05);
+}
 
 @media only screen and (max-width: 37.5em) {
   .grid_actor_container--right-img {
     display: none;
     opacity: 0;
   }
+  .actor_container--img {
+    width: 5rem;
+    height: 5rem;
+  }
+  .card_hover_effect {
+    margin: 0.5rem 5px;
+  }
+  .actor_container--h4 {
+    font-size: 10px;
+    width: 4.25rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
   .grid_actor_container--movie-details {
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
     font-size: 0.9rem;
@@ -158,9 +196,15 @@ code {
     padding: 3px;
   }
   .grid_actor_container {
+    margin: 0 !important;
+    padding: 0;
     gap: 8px;
     grid-template-rows: 250px;
-    grid-template-columns: 120px 200px;
+    grid-template-columns: 1fr 2fr;
+  }
+  .grid_actor_container--img {
+    width: 100%;
+    height: 100%;
   }
 
   .card-text {

@@ -9,7 +9,7 @@ import { getMovieActors, getMovieDetails } from '../store/movieSlice'
 const Movie = () => {
   const [currentActorNumber, setCurrentActorNumber] = useState({
     before: 0,
-    after: 5,
+    after: 4,
   })
   const { movieId } = useParams()
   const dispatch = useDispatch()
@@ -97,19 +97,14 @@ const Movie = () => {
           </div>
           <h1
             style={{
-              fontSize: '3rem',
+              fontSize: '2rem',
               textAlign: 'center',
-              margin: '2rem 0 0 4rem',
+              margin: '2rem 0 2rem',
             }}
           >
             Actors
           </h1>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-            }}
-          >
+          <div className='actor_container'>
             {movieActorsList.cast &&
               movieActorsList.cast
                 .slice(currentActorNumber.before, currentActorNumber.after)
@@ -119,21 +114,13 @@ const Movie = () => {
                     key={actor.id}
                     to={`/actors/${actor.id}`}
                   >
-                    <Col
-                      className='card_hover_effect'
-                      style={{
-                        margin: '2rem  5px 1rem',
-                        border: '1px solid #ccc',
-                      }}
-                    >
+                    <Col className='card_hover_effect'>
                       <img
                         alt='actor.png'
-                        style={{ width: '15rem', height: '15rem' }}
+                        className='actor_container--img'
                         src={`${imageUrl}/${actor.profile_path}`}
                       />
-                      <h4 style={{ color: 'black', width: '15rem' }}>
-                        {actor.name}
-                      </h4>
+                      <h4 className='actor_container--h4'>{actor.name}</h4>
                     </Col>
                   </Link>
                 ))}
