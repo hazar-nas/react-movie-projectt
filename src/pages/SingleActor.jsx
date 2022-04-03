@@ -56,19 +56,25 @@ const SingleActor = () => {
                 style={{
                   fontSize: '1.5rem',
                   textAlign: 'left',
-                  padding: '5px',
+                  padding: '0px',
                 }}
               >
                 {actor.name}
               </h1>
-              <div style={{ display: 'flex', padding: '5px' }}>
-                <p style={{ marginRight: 'auto' }}>
-                  <span style={{ marginRight: '5px' }}>Birthday:</span>
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  textAlign: 'left',
+                }}
+              >
+                <p style={{ fontSize: '12px' }}>
+                  <span>Birthday:</span>
                   {actor.birthday}
                   {actor.deathday && <span>Death:{actor.deathday}</span>}
                 </p>
-                <p>
-                  <span style={{ marginRight: '5px' }}>Popularity:</span>
+                <p style={{ fontSize: '12px' }}>
+                  <span>Popularity:</span>
                   {actor.popularity}
                 </p>
               </div>

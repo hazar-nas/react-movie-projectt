@@ -200,7 +200,7 @@ code {
     padding: 0;
     gap: 8px;
     grid-template-rows: 250px;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 120px 1fr;
   }
   .grid_actor_container--img {
     width: 100%;
